@@ -18,7 +18,7 @@ mongoose.connect(process.env.MONGO_URI)
 
 app.use(
     cors({
-        origin: ['http://localhost:3000','https://whatsapp-client.onrender.com']
+        origin: ['http://localhost:3000','https://whatsapp-8q1e.onrender.com']
     })
 )
 
