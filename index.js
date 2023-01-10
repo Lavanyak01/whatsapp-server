@@ -16,12 +16,6 @@ mongoose.connect(process.env.MONGO_URI)
 .then(()=>console.log('Connected to MongoDB'))
 .catch((err)=> console.log(err));
 
-app.use(
-    cors({
-        origin: ['http://localhost:3000','https://whatsapp-8q1e.onrender.com']
-    })
-)
-
 app.use('/api/user', userRoutes);
 app.use('/api/chat', chatRoutes);
 app.use('/api/message', messageRoutes);
@@ -37,8 +31,8 @@ const server = app.listen(PORT, ()=>{
 const io = require('socket.io')(server, {
     pingTimeout: 60000,
     cors: {
-        origin: ['http://localhost:3000', 'https://whatsapp-8q1e.onrender.com']
-        
+        origin: 'https://whatsapp-8q1e.onrender.com',
+        credentials: true,
     },
 });
 
