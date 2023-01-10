@@ -34,13 +34,7 @@ const server = app.listen(PORT, ()=>{
     console.log(`Server started on Port ${PORT}`)
 });
 
-const io = require('socket.io')(server,{
-    pingTimeout: 60000,
-    cors: {
-        origin: ['http://localhost:3000', 'https://whatsapp-8q1e.onrender.com']
-        
-    },
-});
+const io = require('socket.io')(server);
 
 io.on("connection", (socket)=> {
     console.log('connected to socket.io');
